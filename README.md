@@ -7,4 +7,4 @@ Tensorflow </br>
 (Recommended) A GPU enabled machine for faster training.
 
 ## Usage
-python main.py 'Path to Content Image' "Enter theme here"
+python main.py 'Path to Content Image' 'nter theme here'
