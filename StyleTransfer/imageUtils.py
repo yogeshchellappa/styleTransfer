@@ -99,3 +99,48 @@ def plot_images(content_image, style_image, mixed_image):
     
     plt.show()
 
+def plot_styles(style1, style2, style3, combinedStyle):
+    # Create figure with sub-plots.
+    fig, axes = plt.subplots(1, 4, figsize=(15, 15))
+
+    # Adjust vertical spacing.
+    fig.subplots_adjust(hspace=0.1, wspace=0.1)
+
+    # Use interpolation to smooth pixels?
+    smooth = True
+    
+    # Interpolation type.
+    if smooth:
+        interpolation = 'sinc'
+    else:
+        interpolation = 'nearest'
+
+    # Plot style 1
+    # Note that the pixel-values are normalized to
+    # the [0.0, 1.0] range by dividing with 255.
+    ax = axes.flat[0]
+    ax.imshow(style1 / 255.0, interpolation=interpolation)
+    ax.set_xlabel("Style 1")
+
+    # Plot style 2
+    ax = axes.flat[1]
+    ax.imshow(style2 / 255.0, interpolation=interpolation)
+    ax.set_xlabel("Style 2")
+
+    # Plot style 3
+    ax = axes.flat[2]
+    ax.imshow(style3 / 255.0, interpolation=interpolation)
+    ax.set_xlabel("Style 3")
+
+    # Plot the style-image
+    ax = axes.flat[3]
+    ax.imshow(combinedStyle / 255.0, interpolation=interpolation)
+    ax.set_xlabel("Combined Thematic Style")
+
+    # Remove ticks from all the plots.
+    for ax in axes.flat:
+        ax.set_xticks([])
+        ax.set_yticks([])
+    
+    plt.show()    
+
