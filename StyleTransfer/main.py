@@ -40,7 +40,13 @@ def main(contentFilePath, theme):
             startStyle = mixedStyleImage
 
     imageUtils.save_image(mixedStyleImage, "Images/" + "style.jpg")
-    imageUtils.plot_image_big(mixedStyleImage)
+    ##imageUtils.plot_image_big(mixedStyleImage)
+    imageUtils.plot_styles(
+        imageUtils.load_image(styles[0], max_size=None), 
+        imageUtils.load_image(styles[1], max_size=None), 
+        imageUtils.load_image(styles[2], max_size=None), 
+        mixedStyleImage
+        )
     
     # Now apply on the content image
     mixedImage = styleTransfer.style_transfer(content_image=contentImage,
